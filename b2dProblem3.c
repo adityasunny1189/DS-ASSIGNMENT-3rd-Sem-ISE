@@ -14,8 +14,8 @@ int b2d(int bin)
     st.data[++st.top] = bin;
   else
   {
-    b2d(bin/10);
     st.data[++st.top] = bin%10;
+    b2d(bin/10);
   }
 }
 
