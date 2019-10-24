@@ -25,12 +25,15 @@ int main()
     exit(1);
   }
   char ch;
+  int key;
+  printf("Enter the Encryption key: ");
+  scanf("%d",&key);
   while(1)
   {
     ch = fgetc(fp1);
     if(ch == EOF)
       break;
-    ch = ch + 1;
+    ch = ch + key;
     fputc(ch, fp2);
   }
   fclose(fp1);
