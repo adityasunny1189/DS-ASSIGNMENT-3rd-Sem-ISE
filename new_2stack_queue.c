@@ -76,7 +76,7 @@ int main()
     {
       case 1: insert(&s1);break;
       case 2: delete(&s1,&s2);break;
-      case 3: display(s2);break;
+      // case 3: display(s2);break;
       default: printf("\nInvalid\n");
     }
     printf("\ncontinue: ");
