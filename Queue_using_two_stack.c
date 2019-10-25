@@ -43,12 +43,20 @@ struct queue
   struct stack *S2;
 };
 
-void insert(struct queue *Q , int ele)
+typedef struct queue QUEUE;
+
+struct queue *createqueue()
+{
+  struct queue *Q = malloc(sizeof(struct queue));
+  return Q;
+}
+
+void insert(QUEUE **Q , int ele)
 {
   push(Q->S1,ele);
 }
 
-void delete(struct queue *Q)
+void delete(QUEUE **Q)
 {
   while(!isEmpty(Q->S1))
   {
@@ -57,7 +65,7 @@ void delete(struct queue *Q)
   printf("Deleted element is: %d",pop(Q->S2));
 }
 
-void display(struct queue *Q)
+void display(QUEUE **Q)
 {
   while(!isEmpty(Q->S1))
   {
@@ -71,9 +79,10 @@ void display(struct queue *Q)
 
 int main()
 {
-  struct queue Q;
-  Q.S1->top = -1;
-  Q.S2->top = -1;
+  QUEUE *Q = createqueue();
+  // Q = (QUEUE *)malloc(sizeof(QUEUE));
+  Q->S1->top = -1;
+  Q->S2->top = -1;
   int ele;
   int choice;
   char ch;
