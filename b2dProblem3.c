@@ -26,6 +26,7 @@ int main()
   int sum = 0;
   printf("Enter Binary no: ");
   scanf("%d",&bin);
+  b2d(bin);
   for(int i = 0 ; i <= st.top ; i++)
   {
     sum = sum + st.data[i]*pow(2,i);
