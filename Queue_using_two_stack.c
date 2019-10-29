@@ -45,18 +45,18 @@ struct queue
 
 typedef struct queue QUEUE;
 
-struct queue *createqueue()
-{
-  struct queue *Q = malloc(sizeof(struct queue));
-  return Q;
-}
+// struct queue *createqueue()
+// {
+//   struct queue Q = malloc(sizeof(struct queue));
+//   return Q;
+// }
 
-void insert(QUEUE **Q , int ele)
+void insert(QUEUE *Q , int ele)
 {
   push(Q->S1,ele);
 }
 
-void delete(QUEUE **Q)
+void delete(QUEUE *Q)
 {
   while(!isEmpty(Q->S1))
   {
@@ -65,7 +65,7 @@ void delete(QUEUE **Q)
   printf("Deleted element is: %d",pop(Q->S2));
 }
 
-void display(QUEUE **Q)
+void display(QUEUE *Q)
 {
   while(!isEmpty(Q->S1))
   {
@@ -79,8 +79,8 @@ void display(QUEUE **Q)
 
 int main()
 {
-  QUEUE *Q = createqueue();
-  // Q = (QUEUE *)malloc(sizeof(QUEUE));
+  QUEUE *Q;
+  Q = (QUEUE *)malloc(sizeof(QUEUE));
   Q->S1->top = -1;
   Q->S2->top = -1;
   int ele;
