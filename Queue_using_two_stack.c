@@ -45,11 +45,16 @@ struct queue
 
 typedef struct queue QUEUE;
 
-// struct queue *createqueue()
-// {
-//   struct queue Q = malloc(sizeof(struct queue));
-//   return Q;
-// }
+struct queue *createqueue()
+{
+  QUEUE *Q;
+  struct queue Q = malloc(sizeof(struct queue));
+  if(!Q)
+    return NULL;
+  Q->S1->top = -1;
+  Q->S2->top = -1;
+  return Q;
+}
 
 void insert(QUEUE *Q , int ele)
 {
@@ -79,10 +84,7 @@ void display(QUEUE *Q)
 
 int main()
 {
-  QUEUE *Q;
-  Q = (QUEUE *)malloc(sizeof(QUEUE));
-  Q->S1->top = -1;
-  Q->S2->top = -1;
+  QUEUE *Q = createqueue();
   int ele;
   int choice;
   char ch;
